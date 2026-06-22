@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PlantMind AI - Unified Asset & Operations Brain</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <aside class="sidebar" aria-label="PlantMind navigation">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">PM</div>
+        <div>
+          <strong>PlantMind AI</strong>
+          <span>Asset & Operations Brain</span>
+        </div>
+      </div>
+      <nav class="nav-list">
+        <a href="#overview" class="active">Overview</a>
+        <a href="#documents">Documents</a>
+        <a href="#copilot">Copilot</a>
+        <a href="#graph">Knowledge Graph</a>
+        <a href="#failure-agent">Failure Agent</a>
+      </nav>
+      <div class="sidebar-note">
+        <span class="note-label">Demo plant</span>
+        <strong>Vadodara Heavy Pumps Unit</strong>
+        <p>Seeded with maintenance logs, inspection reports, SOPs, and incident notes.</p>
+      </div>
+    </aside>
+
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Industrial Knowledge Intelligence</p>
+          <h1>Unified Asset & Operations Brain</h1>
+        </div>
+        <div class="status-cluster" aria-label="System status">
+          <span><b id="docCount">0</b> docs indexed</span>
+          <span><b id="entityCount">0</b> entities</span>
+          <span><b>92%</b> answer confidence</span>
+        </div>
+      </header>
+
+      <section id="overview" class="metric-grid" aria-label="PlantMind metrics">
+        <article class="metric">
+          <span class="metric-icon">D</span>
+          <div>
+            <p>Indexed Knowledge</p>
+            <strong id="chunkCount">0 chunks</strong>
+          </div>
+        </article>
+        <article class="metric">
+          <span class="metric-icon warn">R</span>
+          <div>
+            <p>Critical Risk</p>
+            <strong>P-101 bearing train</strong>
+          </div>
+        </article>
+        <article class="metric">
+          <span class="metric-icon ok">A</span>
+          <div>
+            <p>Recommended Action</p>
+            <strong>Inspect in 48 hours</strong>
+          </div>
+        </article>
+        <article class="metric">
+          <span class="metric-icon cool">C</span>
+          <div>
+            <p>Compliance Trace</p>
+            <strong>4 SOP links found</strong>
+          </div>
+        </article>
+      </section>
+
+      <section class="workspace-grid">
+        <section id="documents" class="panel document-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Module 1</p>
+              <h2>Universal Document Intelligence</h2>
+            </div>
+            <button id="simulateUpload" class="icon-button" type="button" title="Simulate upload">+</button>
+          </div>
+
+          <label class="dropzone" for="fileInput">
+            <input id="fileInput" type="file" multiple>
+            <span class="upload-icon" aria-hidden="true">UP</span>
+            <strong>Upload manuals, reports, SOPs, or maintenance sheets</strong>
+            <small>Demo mode indexes file names and adds them to the knowledge base.</small>
+          </label>
+
+          <div class="pipeline" aria-label="Document processing pipeline">
+            <span>Upload</span>
+            <span>Parse</span>
+            <span>Extract</span>
+            <span>Embed</span>
+            <span>Graph</span>
+          </div>
+
+          <div id="documentList" class="document-list"></div>
+        </section>
+
+        <section id="copilot" class="panel copilot-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Module 2</p>
+              <h2>Industrial Copilot</h2>
+            </div>
+            <span class="live-pill">RAG ready</span>
+          </div>
+
+          <div id="chatLog" class="chat-log" aria-live="polite"></div>
+          <form id="questionForm" class="question-form">
+            <input id="questionInput" type="text" autocomplete="off" placeholder="Ask about Pump P-101, bearing replacement, failures, SOPs...">
+            <button type="submit">Ask</button>
+          </form>
+          <div class="quick-prompts" aria-label="Suggested questions">
+            <button type="button" data-question="Why did Pump P-101 fail last year?">P-101 failure cause</button>
+            <button type="button" data-question="What does the SOP say about bearing replacement?">Bearing SOP</button>
+            <button type="button" data-question="Show all failures related to Pump P-101">Failure history</button>
+          </div>
+        </section>
+      </section>
+
+      <section class="workspace-grid lower-grid">
+        <section id="graph" class="panel graph-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Wow Moment</p>
+              <h2>Knowledge Graph</h2>
+            </div>
+            <select id="assetSelect" aria-label="Choose asset"></select>
+          </div>
+          <svg id="knowledgeGraph" viewBox="0 0 760 430" role="img" aria-label="Asset knowledge graph"></svg>
+        </section>
+
+        <section id="failure-agent" class="panel failure-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Module 3</p>
+              <h2>Failure Intelligence Agent</h2>
+            </div>
+            <button id="runRca" class="secondary-button" type="button">Run RCA</button>
+          </div>
+          <div class="risk-meter">
+            <div>
+              <span>Root cause probability</span>
+              <strong id="rootCauseScore">78%</strong>
+            </div>
+            <div class="meter-track"><span id="meterFill"></span></div>
+          </div>
+          <div id="insightList" class="insight-list"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
